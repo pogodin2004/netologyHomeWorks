@@ -2,14 +2,14 @@
 ## Задание №1 - Подготовка рабочей среды
    Проверка подсветки синтатксиса:
    * Terraform
-![](img/terraform.png)
+![](https://github.com/pogodin2004/netologyHomeWorks/tree/master/01.intro/img/terraform.png)
    * Bash
-![](img/bash.png)
+![](https://github.com/pogodin2004/netologyHomeWorks/tree/master/01.intro/img/bash.png)
    * Markdown
-![](img/markdown.png)
+![](https://github.com/pogodin2004/netologyHomeWorks/tree/master/01.intro/img/markdown.png)
    * YAML
-![](img/yaml.png)
+![](https://github.com/pogodin2004/netologyHomeWorks/tree/master/01.intro/img/yaml.png)
    * Jsonnet
-![](img/json.png)
+![](https://github.com/pogodin2004/netologyHomeWorks/tree/master/01.intro/img/json.png)
 
 ## Задание №2 - Описание жизненного цикла задачи (разработки нового функционала)
