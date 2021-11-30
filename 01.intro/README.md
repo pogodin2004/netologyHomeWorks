@@ -1,10 +1,10 @@
 # Домашнее задание к занятию «1.1. Введение в DevOps»
 ## Задание №1 - Подготовка рабочей среды
-   Подсветка синтаксисаЖ
-    * Terraform: ![Терраформ](img/terraform.png)
-    * Bash: ![bahs](img/bash.png)
-    * Markdown: ![markdown](img/markdown.png)
-    * Yaml: ![Yaml](img/yaml.png)
-    * Jsonnet: ![Jsonnet](img/jsonnet.png)
+   Подсветка синтаксиса:
+   * Terraform: ![Терраформ](img/terraform.png)
+   * Bash: ![bahs](img/bash.png)
+   * Markdown: ![markdown](img/markdown.png)
+   * Yaml: ![Yaml](img/yaml.png)
+   * Jsonnet: ![Jsonnet](img/json.png)
 
 ## Задание №2 - Описание жизненного цикла задачи (разработки нового функционала)
