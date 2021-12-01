@@ -6,11 +6,11 @@
    1. Зарегистрируйте аккаунт на https://github.com/.
    2. Создайте публичный репозиторий, который будете использовать дальше на протяжении всего курса
 
-![] (img/git_repo.png)
+![](img/git_repo.png)
 
    3. Склонируйте репозиторий, используя https протокол 
 
-![] (img/git_clone.png)
+![](img/git_clone.png)
 
    4. Перейдите в каталог с клоном репозитория
    5. Произведите первоначальную настройку git, указав свое настоящее имя
@@ -18,64 +18,63 @@
    7. Отредактируйте файл `README.md` любым удобным способом, тем самым переведя файл в состояние `Modified`.
    8. Еще раз выполните `git status` и продолжайте проверять вывод этой команды после каждого последующего шага
 
-![] (img/git_status_first.png)
+![](img/git_status_first.png)
 
    9. Давйте теперь посмотрим изменения в файле README.md
    10. Переведите файл в состояние staged
 
-![] (img/git_add_first.png)
+![](img/git_add_first.png)
 
    11. Выполните команды `git diff` и `git diff --staged`.
 
-![] (img/git_diff.png)
+![](img/git_diff.png)
 
    12. Теперь можно сделать коммит `git commit -m 'First commit'`.
    13. И еще раз посмотреть выводы команд `git status`, `git diff` и `git diff --staged`.
 
-![] (img/git_commit_first.png)
+![](img/git_commit_first.png)
 
    Создадим файлы .gitignore и второй коммит:
 
    1. Создайте файл `.gitignore`, проверьте его статус сразу после создания.
    2. Добавьте файл `.gitignore` в следующий коммит `(git add...)`.
 
-![] (img/git_add_second.png)
+![](img/git_add_second.png)
 
    3. На одном из следующих блоков мы будем изучать `Terraform`, давайте сразу же создадим соотвествующий каталог `terraform` и внутри этого каталога файл `.gitignore`
    4. В файле `README.md` опишите своими словами какие файлы будут проигнорированы в будущем благодаря добавленному `.gitignore`.
    5. Закоммитте все новые и измененные файлы. Комментарий к коммиту должен быть `Added gitignore`.
 
-![] (img/git_commit_second.png)
+![](img/git_commit_second.png)
 
    Экспериментируем с удалением и перемещением файлов (третий и четвертый коммит).
    1. Создайте файлы `will_be_deleted.txt` (с текстом `will_be_deleted`) и `will_be_moved.txt`(с текстом `will_be_moved`) и закоммите их с комментарием `Prepare to delete and move`.
 
-![] (img/add_files.png)
+![](img/add_files.png)
 
    2. В случае необходимости обратитесь к официальной документации.
    3. Удалите файл `will_be_deleted.txt` с диска и из репозитория.
    4. Переименуйте (переместите) файл `will_be_moved.txt` на диске и в репозитории, чтобы он стал называться `has_been_moved.txt`.
    5. Закоммитте результат работы с комментарием `Moved and deleted`.
 
-![] (img/deleted_files.png)
-
+![](img/deleted_files.png)
 
    Проверка изменений.
 
    1. В результате предыдущих шагов в репозитории должно быть как минимум пять коммитов. Проверьте это используя комманду `git log`
 
-![] (img/git_log.png)
+![](img/git_log.png)
 
    Отправка изменений в репозиторий.
 
-   Выполните команду git push
+   Выполните команду `git push`:
 
-![] (img/git_push.png)
+![](img/git_push.png)
 
 ## Задание №2 – Знакомство с документаций
 
    Выполните в консоли команды `git --help`, `git add --help` и изучите их вывод.
 
-![] (img/git_help.png)
+![](img/git_help.png)
 
-![] (img/git_help1.png)
+![](img/git_help1.png)
