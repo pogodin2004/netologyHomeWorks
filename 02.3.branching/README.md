@@ -3,7 +3,7 @@
 
    1. Создайте в своем репозитории каталог `branching` и в нем два файла `merge.sh` и `rebase.sh` с содержимым:
 
-![](img/sh_file_create.png)
+![](img/sh_files_create.png)
 
    2. Создадим коммит с описанием `prepare for merge and rebase` и отправим его в ветку `master`
 
@@ -51,10 +51,12 @@
    Сливаем ветку `git-merge` в `master` и отправляем изменения в репозиторий, должно получиться без конфликтов:
 
 ![](img/git_merge_git-merge.png)
+
 ![](img/network_graph_merge.png)
 
 ### Rebase
    А перед мержем ветки `git-rebase` выполним ее `rebase` на `master`. Да, мы специально создали ситуацию с конфликтами, чтобы потренироваться их решать.
+
    Переключаемся на ветку `git-rebase` и выполняем `git rebase -i master`. В открывшемся диалоге должно быть два выполненных нами коммита, давайте заодно объединим их в один, указав слева от нижнего `fixup`. 
 
 ![](img/git_rebase_conflict.png)
