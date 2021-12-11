@@ -22,7 +22,7 @@
 
    5. Найдите коммит в котором была создана функция func providerSource, ее определение в коде выглядит так func providerSource(...) (вместо троеточего перечислены аргументы).
 
-![](img/func_Provider.png)
+![](img/funcProvider.png)
 
    6. Найдите все коммиты в которых была изменена функция globalPluginDirs.
 
