@@ -59,7 +59,7 @@ end
 
 4. Используя `fdisk`, разбейте первый диск на 2 раздела: 2 Гб, оставшееся пространство.
 
-![](img/sdb_crate_partitions.png)
+![](img/sdb_create_partitions.png)
 
 ![](img/lsblk_sdb.png)
 
