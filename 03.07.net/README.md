@@ -124,6 +124,12 @@ iface bond0 inet static
 
 ```
 очистить ARP кеш: ip neigh flush all
-
 удалить IP: arp -d 192.168.40.2
+```
+
+```
+Windows
+Посмотреть таблицу: arp -a
+Очистить кеш: netsh interface ip delete arpcache
+Удалить один IP: arp -d 192.168.40.2
 ```
