@@ -69,6 +69,11 @@ Chrome в Ubuntu на хоствой машине в упор не хочет п
 
 ![](img/cron_1.png)
 
+![](img/cron_2.png)
+
+![](img/cron_3.png)
+
+![](img/cron_4.png)
 
 
 
