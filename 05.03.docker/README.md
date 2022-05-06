@@ -37,7 +37,7 @@ Hey, Netology
 
 ![](img/docker_hub_6.png)
 
-[Docker Hub]()https://hub.docker.com/repository/docker/pogodin2004/nginx)
+[]()https://hub.docker.com/repository/docker/pogodin2004/nginx
 
 ## Задача 2
 
@@ -109,6 +109,6 @@ java-приложения. Много I/O операций и тяжелое п�
 
 ![](img/last_task_3.png)
 
-[Docker Hub]()https://hub.docker.com/repository/docker/pogodin2004/netology)
+[]()https://hub.docker.com/repository/docker/pogodin2004/netology
 
 
