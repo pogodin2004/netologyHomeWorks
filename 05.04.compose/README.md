@@ -5,7 +5,7 @@
 Создать собственный образ операционной системы с помощью Packer.
 
 <p align="center">
-  <img width="1200" height="600" src="./img/packer.png">
+  <src="./img/packer.png">
 </p>
 
 
@@ -14,7 +14,7 @@
 Создать вашу первую виртуальную машину в Яндекс.Облаке.
 
 <p align="center">
-  <img width="1200" height="600" src="./img/vm.png">
+  <src="./img/vm.png">
 </p>
 
 ## Задача 3
@@ -22,5 +22,5 @@
 Создать ваш первый готовый к боевой эксплуатации компонент мониторинга, состоящий из стека микросервисов.
 
 <p align="center">
-  <img width="1200" height="600" src="./img/grafana.png">
+  <src="./img/grafana.png">
 </p>
