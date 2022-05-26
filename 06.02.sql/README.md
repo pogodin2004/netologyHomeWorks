@@ -145,5 +145,5 @@
 
 ![](img/task6.4.png)
 
-![](img/task6.4.1png)
+![](img/task6.4.1.png)
 
