@@ -31,7 +31,7 @@
 
 - выхода из psql
 
-![](img/task1.6.png)
+![](img/task1.7.png)
 
 ## Задача 2
 
