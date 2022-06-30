@@ -40,6 +40,6 @@ Packer
 
 2. Ссылку на репозиторий с исходной конфигурацией терраформа. 
  
-![Terraform Config](files/)
+[Terraform Config](files/)
 
 
