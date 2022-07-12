@@ -8,7 +8,7 @@
 1. Найдите, где перечислены все доступные `resource` и `data_source`, приложите ссылку на эти строки в коде на 
 гитхабе.   
 
-![](img/resources.png)
+![](img/recources.png)
 
 ![](img/data_sources.png)
 
