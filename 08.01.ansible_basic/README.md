@@ -15,11 +15,9 @@
 
 3. Воспользуйтесь подготовленным (используется `docker`) или создайте собственное окружение для проведения дальнейших испытаний.
 
-![](img/ansible_3.1.png)
+![](img/ansible_4.1.png)
 
 4. Проведите запуск playbook на окружении из `prod.yml`. Зафиксируйте полученные значения `some_fact` для каждого из `managed host`.
-
-![](img/ansible_4.1.png)
 
 ![](img/ansible_4.2.png)
 
@@ -53,7 +51,7 @@
 
 12. Заполните `README.md` ответами на вопросы. Сделайте `git push` в ветку `master`. В ответе отправьте ссылку на ваш открытый репозиторий с изменённым `playbook` и заполненным `README.md`.
 
-[Файлы]()
+[Файлы](https://github.com/pogodin2004/netologyHomeWorks/tree/master/08.01.ansible_basic/required)
 
 ## Необязательная часть
 
