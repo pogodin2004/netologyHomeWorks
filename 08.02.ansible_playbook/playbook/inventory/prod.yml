@@ -1,0 +1,7 @@
+---
+elasticsearch:
+  hosts:
+    centos:
+      ansible_host: 192.168.26.57
+      ansible_connection: ssh
+      ansible_user: ansible
