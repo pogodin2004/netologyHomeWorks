@@ -26,4 +26,4 @@
 
 3. Готовый playbook выложите в свой репозиторий, в ответ предоставьте ссылку на него.
 
-[Файлы](https://github.com/pogodin2004/netologyHomeWorks/tree/master/08.01.ansible_playbook/playbook)
+[Файлы](https://github.com/pogodin2004/netologyHomeWorks/tree/master/08.02.ansible_playbook/playbook)
