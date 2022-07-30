@@ -24,4 +24,4 @@
 
 Если всё отработало в рамках ожидания - выгрузить схемы workflow для импорта в XML. Файлы с workflow приложить к решению задания.
 
-[Файлы](https://github.com/pogodin2004/netologyHomeWorks/tree/master/09.01.ci-cd_lifecycle/files)
+[Файлы](https://github.com/pogodin2004/netologyHomeWorks/tree/master/09.01.ci-cd_lyfecycle/files)
