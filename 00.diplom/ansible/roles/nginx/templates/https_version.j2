@@ -1,0 +1,100 @@
+upstream app {
+    server app:80;
+}
+
+upstream gitlab {
+    server gitlab:80;
+}
+
+upstream grafana {
+    server monitoring:3000;
+}
+
+upstream prometheus {
+    server monitoring:9090;
+}
+
+upstream alertmanager {
+    server monitoring:9093;
+}
+
+server {
+  listen               443 ssl;
+  server_name          epogodin.ru www.epogodin.ru;
+  ssl_certificate      /etc/letsencrypt/live/epogodin.ru/fullchain.pem;
+  ssl_certificate_key  /etc/letsencrypt/live/epogodin.ru/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/epogodin.ru/fullchain.pem;
+
+  location / {
+    proxy_set_header   Host $host;
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto $scheme;
+    proxy_pass         http://app;
+  }
+
+}
+server {
+  listen          443 ssl;
+  server_name     gitlab.epogodin.ru;
+  error_page 497 https://$host:$server_port$request_uri;
+  ssl_certificate      /etc/letsencrypt/live/epogodin.ru/fullchain.pem;
+  ssl_certificate_key  /etc/letsencrypt/live/epogodin.ru/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/epogodin.ru/fullchain.pem;
+
+  location / {
+    proxy_set_header   Host $host:$server_port;
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto $scheme;
+    proxy_pass         http://gitlab;
+  }
+}
+
+server {
+  listen          443 ssl;
+  server_name     grafana.epogodin.ru;
+  ssl_certificate      /etc/letsencrypt/live/epogodin.ru/fullchain.pem;
+  ssl_certificate_key  /etc/letsencrypt/live/epogodin.ru/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/epogodin.ru/fullchain.pem;
+  
+  location / {
+    proxy_set_header   Host $host:$server_port;
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto $scheme;
+    proxy_pass         http://grafana;
+  }
+}
+
+server {
+  listen          443 ssl;
+  server_name     prometheus.epogodin.ru;
+  ssl_certificate      /etc/letsencrypt/live/epogodin.ru/fullchain.pem;
+  ssl_certificate_key  /etc/letsencrypt/live/epogodin.ru/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/epogodin.ru/fullchain.pem;
+
+  location / {
+    proxy_set_header   Host $host:$server_port;
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto $scheme;
+    proxy_pass         http://prometheus;
+  }
+}
+
+server {
+  listen          443 ssl;
+  server_name     alertmanager.epogodin.ru;
+  ssl_certificate      /etc/letsencrypt/live/epogodin.ru/fullchain.pem;
+  ssl_certificate_key  /etc/letsencrypt/live/epogodin.ru/privkey.pem;
+  ssl_trusted_certificate /etc/letsencrypt/live/epogodin.ru/fullchain.pem;
+
+  location / {
+    proxy_set_header   Host $host:$server_port;
+    proxy_set_header   X-Real-IP $remote_addr;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto $scheme;
+    proxy_pass         http://alertmanager;
+  }
+}

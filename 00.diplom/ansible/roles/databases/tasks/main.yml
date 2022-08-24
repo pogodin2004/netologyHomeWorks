@@ -1,0 +1,131 @@
+---
+# tasks file for databases
+- name: Update
+  apt:
+    update_cache: yes
+  become: yes
+
+- name: Install MySql
+  package:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - "{{ mysql_packages }}"
+  become: yes
+
+- name: Start mysql
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+
+- name: Remove old users
+  become: yes
+  mysql_user:
+    name: ''
+    host_all: yes
+    state: absent
+
+- name: Remove old database
+  become: yes
+  mysql_db:
+    name: test
+    state: absent
+
+- name: Create db
+  become: yes
+  mysql_db:
+     name: "{{ db_name }}"
+     state: present
+
+- name: Create mysql user
+  become: yes
+  mysql_user:
+     name: "{{ db_user }}"
+     password: "{{ db_password }}"
+     priv: "{{ db_name }}.*:ALL"
+     host: '%'
+     state: present
+
+- name: Enable remote login to mysql
+  become: yes
+  lineinfile:
+     path: /etc/mysql/mysql.conf.d/mysqld.cnf
+     regexp: '^bind-address'
+     line: 'bind-address = 0.0.0.0'
+     backup: yes
+  notify:
+    - Restart mysql
+
+- name: Replace master config
+  become: yes
+  template:
+    src=templates/master.cnf
+    dest=/etc/mysql/mysql.conf.d/master.cnf
+  when:
+    - mysql_replication_role == 'master'
+    - (mysql_replication_master | length) > 0
+  notify:
+    - Restart mysql
+
+- name: Replace slave config
+  become: yes
+  template:
+    src=templates/slave.cnf
+    dest=/etc/mysql/mysql.conf.d/slave.cnf
+  when:
+    - mysql_replication_role == 'slave'
+    - (mysql_replication_master | length) > 0
+  notify:
+    - Restart mysql
+
+- name: Ensure replication user exists on master.
+  become: yes
+  mysql_user:
+    name: "{{ mysql_replication_user }}"
+    host: "%"
+    password: "{{ mysql_replication_user_password }}"
+    priv: "*.*:REPLICATION SLAVE,REPLICATION CLIENT"
+    state: present
+  when:
+    - mysql_replication_role == 'master'
+    - (mysql_replication_master | length) > 0
+
+- name: Check slave status
+  become: yes
+  mysql_replication:
+    mode: getslave
+  register: slave
+  when:
+    - mysql_replication_role == 'slave'
+    - (mysql_replication_master | length) > 0
+
+- name: Check master status
+  become: yes
+  mysql_replication:
+    mode: getmaster
+  register: master
+  when:
+    - mysql_replication_role == 'slave'
+    - (mysql_replication_master | length) > 0
+
+- name: Configure replication
+  become: yes
+  mysql_replication:
+    mode: changemaster
+    master_host: "{{ mysql_replication_master }}"
+    master_user: "{{ mysql_replication_user }}"
+    master_password: "{{ mysql_replication_user_password }}"
+    master_log_file: "{{ master.File }}"
+    master_log_pos: "{{ master.Position }}"
+  when:
+    - mysql_replication_role == 'slave'
+    - (mysql_replication_master | length) > 0
+
+- name: Start replica
+  become: yes
+  mysql_replication:
+    mode: startslave
+  when:
+    - mysql_replication_role == 'slave'
+    - (mysql_replication_master | length) > 0

@@ -1,0 +1,49 @@
+---
+# tasks file for grafana
+- name: Adding gpg key
+  become: true
+  shell: curl https://packages.grafana.com/gpg.key | sudo apt-key add -
+
+- name: Adding repository
+  become: true
+  apt_repository:
+    repo: deb https://packages.grafana.com/oss/deb stable main
+    state: present
+
+- name: Installing grafana
+  become: true
+  apt:
+    name: grafana
+    state: present
+    update_cache: yes
+
+- name: Set Prometheus datasource
+  become: true
+  template:
+    src: prometheus.yml
+    dest: /etc/grafana/provisioning/datasources/prometheus.yml
+    owner: grafana
+    group: grafana
+
+- name: Set node-exporter dashboard
+  become: true
+  ansible.builtin.copy:
+    src: templates/node-exporter-full.json
+    dest: /etc/grafana/provisioning/dashboards/node-exporter-full.json
+    owner: grafana
+    group: grafana
+
+- name: Set Prometheus dashboard
+  become: true
+  template:
+    src: dashboard.yml
+    dest: /etc/grafana/provisioning/dashboards/dashboard.yml
+    owner: grafana
+    group: grafana
+
+- name: Enabling and starting grafana service
+  become: true
+  service:
+    name: grafana-server
+    enabled: yes
+    state: started
