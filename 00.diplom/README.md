@@ -128,9 +128,9 @@
 
 ![](img/2.gitlab_repo.png)
 
-![](img/3.gitlab_log.png)
+![](img/3.gilab_log.png)
 
-![](img/4.gitlab_pipline.png)
+![](img/4.gitlab_pipeline.png)
 
 ![](img/5.gitlab_site.png)
 
