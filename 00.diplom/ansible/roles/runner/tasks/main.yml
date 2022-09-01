@@ -15,13 +15,9 @@
   become: true
   command: "chmod +x /usr/local/bin/gitlab-runner"
 
-- name: Install GitLab Runner
-  become: true
-  command: "useradd --comment 'GitLab Runner' --create-home runner --shell /bin/bash"
-
 - name: Install and run as a service
   become: true
-  command: "gitlab-runner install --user=runner --working-directory=/home/runner"
+  command: "gitlab-runner install --user=ubuntu --working-directory=/home/ubuntu"
 
 - name: Start runner
   become: true
@@ -36,22 +32,7 @@
     --description "roadrunner" \
     --executor "shell"
 
-- name: Create directory for runner ssh keys
-  become: true
-  file:
-    name: /home/runner/.ssh/
-    state: directory
-
-- name: Copy id_rsa files
-  become: true
-  template:
-    src: templates/{{ item }}
-    dest: /home/runner/.ssh/
-  with_items:
-    - id_rsa.pub
-    - id_rsa
-
 - name: move .bash_logout
   become: true
   shell: >
-    rm /home/runner/.bash_logout
+    rm /home/ubuntu/.bash_logout

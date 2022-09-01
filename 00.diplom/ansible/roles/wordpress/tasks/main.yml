@@ -30,7 +30,7 @@
     state: directory
     owner: "www-data"
     group: "www-data"
-    mode: '0755'
+    mode: '0775'
 
 - name: Set up Apache VirtualHost
   become: true
@@ -76,11 +76,11 @@
 
 - name: Set permissions for directories
   become: true
-  shell: "/usr/bin/find /var/www/{{ http_host }}/wordpress/ -type d -exec chmod 750 {} \\;"
+  shell: "/usr/bin/find /var/www/{{ http_host }}/wordpress/ -type d -exec chmod 770 {} \\;"
 
 - name: Set permissions for files
   become: true
-  shell: "/usr/bin/find /var/www/{{ http_host }}/wordpress/ -type f -exec chmod 640 {} \\;"
+  shell: "/usr/bin/find /var/www/{{ http_host }}/wordpress/ -type f -exec chmod 660 {} \\;"
 
 - name: Set up wp-config
   become: true
@@ -88,40 +88,6 @@
     src: "templates/wp-config.php.j2"
     dest: "/var/www/{{ http_host }}/wordpress/wp-config.php"
 
-#tasks for gitlab-runner
-- name: Add the user for gitlab runner
+- name: www-data to ubuntu user group
   become: true
-  ansible.builtin.user:
-    name: runner
-
-- name: Add runner user to sudoers
-  become: true
-  user:
-    name=runner
-    groups=sudo
-    append=yes
-    state=present
-
-- name: Allow gitlab_runner user to have passwordless sudo
-  become: true
-  lineinfile:
-    dest: /etc/sudoers
-    state: present
-    regexp: '^runner'
-    line: 'runner ALL=(ALL) NOPASSWD: ALL'
-
-- name: Create directory for runner authorized_keys
-  become: true
-  file:
-    name: /home/runner/.ssh/
-    state: directory
-
-- name: Copy authorized_keys file
-  become: true
-  template:
-    src: templates/authorized_keys
-    dest: /home/runner/.ssh/
-
-#- name: set permission wordpress folder for runner user
-#  become: true
-#  shell: "chown -R runner /var/www/{{ http host }}/wordpress/"
+  ansible.builtin.shell: "usermod -a -G www-data ubuntu"

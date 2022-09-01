@@ -75,7 +75,7 @@
 - name: Get stage cert
   become: true
   shell: >
-    certbot certonly --test-cert -d {{ domain }} -d www.{{ domain }} -d gitlab.{{ domain }} -d grafana.{{ domain }} -d alertmanager.{{ domain }} -d prometheus.{{ domain }} --email help@{{ domain }} --agree-tos --webroot -w /var/www/{{ domain }}/html --non-interactive
+    certbot certonly -d {{ domain }} -d www.{{ domain }} -d gitlab.{{ domain }} -d grafana.{{ domain }} -d alertmanager.{{ domain }} -d prometheus.{{ domain }} --email help@{{ domain }} --agree-tos --webroot -w /var/www/{{ domain }}/html --non-interactive
 
 - name: Add cron job for certbot renewal
   become: true

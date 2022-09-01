@@ -100,3 +100,39 @@
 
 [ansible](https://github.com/pogodin2004/netologyHomeWorks/tree/master/00.diplom/ansible)
 
+---
+### Доработки:
+1. Сертификаты нужно все таки перевыпустить. У вас они не валидные. Соответственно задача до конца не выполнена
+
+![](prod_cert.png)
+
+![](img/prod_wordpress.png)
+
+![](img/prod_gitlab.png)
+
+![](img/prod_grafana.png)
+
+![](img/prod_prometheus.png)
+
+![](img/prod_alertmanager.png)
+
+2. Прикрепите скрин/лог, подтверждающие, что db развернута в отказоустойчивом режиме.
+
+![](img/db01.png)
+
+![](img/db02.png)
+
+3. Прикрепите скрин/лог, подтверждающие, что задача gitlab ci отработала корректно.
+
+![](img/1.gitlab_result.png)
+
+![](img/2.gitlab_repo.png)
+
+![](img/3.gitlab_log.png)
+
+![](img/4.gitlab_pipline.png)
+
+![](img/5.gitlab_site.png)
+
+![](img/6.gitlab_app_host.png)
+
